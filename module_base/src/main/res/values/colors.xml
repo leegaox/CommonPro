@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent2">#FF5891</color>
+    <color name="colorControlHighlight">#203F51B5</color>
+    <!-- 背景色  灰 -->
+    <color name="colorAppBackground">#f6f6f6</color>
+    <!-- 前景色  白 -->
+    <color name="colorAppForeground">@color/white</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <!--Text Color Start...-->
+    <!--Dark text on light backgrounds-->
+    <!--87% alpha-->
+    <color name="dark_primary_text">#DD000000</color>
+    <!--54% alpha-->
+    <color name="dark_second_text">#8A1A1916</color>
+    <!--38% alpha-->
+    <color name="dark_disabled_hint_text">#618c847e</color>
+    <!--12% alpha-->
+    <color name="dark_divider_text">#1f000000</color>
+    <!--White text on dark backgrounds-->
+    <!--100% alpha-->
+    <color name="white_primary_text">#ffffff</color>
+    <!--70% alpha-->
+    <color name="white_second_text">#b3ffffff</color>
+    <!--50% alpha-->
+    <color name="white_disabled_hint_text">#80ffffff</color>
+    <!--12% alpha-->
+    <color name="white_divider_text">#1fffffff</color>
+    <!--Text Color End...-->
+
+    <color name="gray_500">#9E9E9E</color>
+    <color name="gray_50">#FAFAFA</color>
+    <color name="gray_100">#F5F5F5</color>
+    <color name="gray_200">#EEEEEE</color>
+    <color name="gray_300">#E0E0E0</color>
+    <color name="gray_400">#BDBDBD</color>
+    <color name="gray_600">#757575</color>
+    <color name="gray_700">#616161</color>
+    <color name="gray_800">#424242</color>
+    <color name="gray_900">#212121</color>
+
+    <color name="pink_500">#E91E63</color>
+    <color name="pink_50">#FCE4EC</color>
+    <color name="pink_100">#F8BBD0</color>
+    <color name="pink_200">#F48FB1</color>
+    <color name="pink_300">#F06292</color>
+    <color name="pink_400">#EC407A</color>
+    <color name="pink_600">#D81B60</color>
+    <color name="pink_700">#C2185B</color>
+    <color name="pink_800">#AD1457</color>
+    <color name="pink_900">#880E4F</color>
+    <color name="pink_A100">#FF80AB</color>
+    <color name="pink_A200">#FF4081</color>
+    <color name="pink_A400">#F50057</color>
+    <color name="pink_A700">#C51162</color>
+
+
+</resources>

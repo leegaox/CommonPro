@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Common</string>
+    <string name="action_settings">Settings</string>
+    <string name="sure">确定</string>
+
+    <string name="permission_camera_rationale">Camera permission is needed to show the camera preview.</string>
+    <string name="permission_contacts_rationale">Contacts permissions are needed to demonstrate access.</string>
+</resources>

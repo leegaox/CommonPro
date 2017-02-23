@@ -1,0 +1,79 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.1"
+
+//    signingConfigs {
+//        biuapp {
+////            keyAlias 'biu'
+////            keyPassword 'biu123456'
+////            storeFile file('../biuapp.keystore')
+////            storePassword 'biu123456'
+//        }
+//    }
+
+    defaultConfig {
+        applicationId "com.biu.abc"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            buildConfigField "String", "BASE_URL", "\"https://bqr.biubiulife.com:8443/\""
+//            buildConfigField "String", "BASE_URL", "\"http://dilong.sunnyos.com.ngrok.cc/\""
+
+            versionNameSuffix "-debug"
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+//            signingConfig signingConfigs.biuapp
+        }
+        release {
+//            //显示log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+//            buildConfigField "String", "BASE_URL", "\"https://bqr.biubiulife.com:8443/\""
+
+//            //混淆
+            minifyEnabled false
+//            //Zipalign优化
+//            zipAlignEnabled true
+            //移除无用的resource文件
+            shrinkResources true
+            //加载默认混淆配置文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            signingConfig signingConfigs.biuapp
+        }
+    }
+    sourceSets { main { res.srcDirs = ['src/main/res', 'src/main/res/2'] } }
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+    }
+}
+
+apply plugin: 'com.neenbedankt.android-apt'
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:24.1.1'
+    compile 'com.android.support:design:24.1.1'
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+
+    compile project(':module_base')
+
+}

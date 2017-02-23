@@ -1,0 +1,182 @@
+ <resources>
+
+    <!-- Base application theme. -->
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/colorAppBackground</item>
+        <item name="android:editTextStyle">@style/Style.EditText</item>
+        <item name="android:textViewStyle">@style/Style.TextView</item>
+        <item name="android:autoCompleteTextViewStyle">@style/Style.SearchView.AutoCompleteTextView</item>
+        <item name="searchViewStyle">@style/Style.SearchView</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="alertDialogTheme">@style/Base.Dialog</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+     <style name="FullscreenTheme" parent="AppTheme">
+         <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+         <item name="android:windowActionBarOverlay">true</item>
+         <item name="android:windowBackground">@null</item>
+     </style>
+     <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
+         <item name="android:background">@color/transparent</item>
+     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+     <style name="Style.ToolBar" parent="Widget.AppCompat.Toolbar">
+         <item name="android:layout_width">match_parent</item>
+         <item name="android:layout_height">?attr/actionBarSize</item>
+         <item name="android:background">?attr/colorPrimary</item>
+         <!--<item name="android:elevation" tools:targetApi="lollipop">@dimen/elevation_app_bar</item>-->
+         <item name="title">" "</item>
+         <item name="subtitle">" "</item>
+     </style>
+
+     <style name="Style.Toolbar.Title" parent="@android:style/Widget.TextView">
+         <item name="android:layout_width">wrap_content</item>
+         <item name="android:layout_height">wrap_content</item>
+         <item name="android:layout_gravity">center</item>
+         <item name="android:textSize">@dimen/text_size_18</item>
+         <item name="android:textColor">@color/colorPrimary</item>
+         <item name="android:textAppearance">@style/TextAppearance.Widget.AppCompat.Toolbar.Title
+         </item>
+     </style>
+
+     <style name="Style.Toolbar.Divider" parent="">
+         <item name="android:layout_height">0.5dp</item>
+         <item name="android:background">@color/white_divider_text</item>
+     </style>
+
+     <style name="Style.SearchView" parent="Widget.AppCompat.SearchView">
+         <item name="queryBackground">@null</item>
+         <item name="submitBackground">@null</item>
+         <!--   <item name="searchIcon">@mipmap/search</item>
+         <item name="searchHintIcon">@mipmap/search</item>
+         <item name="goIcon">@mipmap/search</item>
+         <item name="commitIcon">@mipmap/search</item>
+         <item name="closeIcon">@mipmap/close1</item>-->
+         <item name="suggestionRowLayout">@null</item>
+     </style>
+
+     <style name="Style.SearchView.AutoCompleteTextView">
+         <item name="android:textColor">@color/dark_second_text</item>
+         <item name="android:textSize">@dimen/text_size_6</item>
+     </style>
+
+     <style name="Style.EditText" parent="Base.Widget.AppCompat.EditText">
+         <item name="android:layout_width">match_parent</item>
+         <item name="android:layout_height">wrap_content</item>
+         <item name="android:background">@null</item>
+         <item name="android:textAppearance">@style/EditTextAppearance</item><!--没效果 ，在xml里具体实现-->
+         <item name="android:paddingLeft">@dimen/view_margin_8dp</item>
+         <item name="android:paddingRight">@dimen/view_margin_8dp</item>
+         <item name="android:gravity">top|left</item>
+     </style>
+
+     <style name="EditTextAppearance" parent="Base.TextAppearance.AppCompat.Small">
+         <item name="android:textSize">@dimen/text_size_14</item>
+         <item name="android:textColor">@color/dark_disabled_hint_text</item>
+     </style>
+
+     <style name="Style.TextView" parent="@android:style/Widget.TextView">
+         <item name="android:layout_width">wrap_content</item>
+         <item name="android:layout_height">wrap_content</item>
+         <item name="android:textAllCaps">false</item>
+         <item name="android:textColor">@color/dark_primary_text</item>
+         <item name="android:gravity">center_vertical</item>
+         <item name="android:textSize">@dimen/text_size_14</item>
+         <item name="android:textColorHint">@color/dark_disabled_hint_text</item>
+         <item name="android:drawablePadding">@dimen/view_margin_4dp</item>
+     </style>
+
+     <style name="Base.Tab.Bottom" parent="Style.TextView">
+         <item name="android:textSize">@dimen/text_size_12</item>
+         <item name="android:textColor">@color/dark_second_text</item>
+         <item name="android:ellipsize">marquee</item>
+         <item name="android:gravity">center</item>
+         <item name="android:layout_width">0dp</item>
+         <item name="android:layout_height">wrap_content</item>
+         <item name="android:button">@null</item>
+         <item name="android:singleLine">true</item>
+         <item name="android:layout_weight">1.0</item>
+         <item name="android:drawablePadding">0dp</item>
+     </style>
+
+     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+         <item name="color">@color/dark_primary_text</item>
+     </style>
+
+     <style name="Base.Dialog" parent="Base.Theme.AppCompat.Light.Dialog.Alert">
+         <item name="colorAccent">@color/colorAccent</item>
+         <item name="android:textColorPrimary">@color/dark_primary_text</item>
+         <item name="android:textColor">@color/dark_primary_text</item>
+         <!-- the minWith that is the screen is portrait -->
+         <item name="android:windowMinWidthMinor">85%</item>
+         <!-- the minWith that is the screen is landscape -->
+         <item name="android:windowMinWidthMajor">65%</item>
+         <item name="android:windowBackground">@color/white</item>
+     </style>
+
+
+     <!-- 自定义Dialog -->
+     <style name="CustomDialog" parent="@android:style/Theme.Dialog">
+         <item name="android:windowFrame">@null</item>
+         <!-- 边框 -->
+         <item name="android:windowIsFloating">true</item>
+         <!-- 是否浮现在activity之上 -->
+         <item name="android:windowIsTranslucent">false</item>
+         <!-- 半透明 -->
+         <item name="android:windowNoTitle">true</item>
+         <!-- 无标题 -->
+         <item name="android:windowBackground">@color/transparent</item>
+         <!-- 自己想要的背景 -->
+         <item name="android:backgroundDimEnabled">true</item>
+         <!-- bg color -->
+     </style>
+
+     <style name="LoadingDialog" parent="CustomDialog">
+         <item name="android:windowBackground">@android:color/transparent</item>
+         <item name="android:windowNoTitle">true</item>
+     </style>
+
+     <!-- 拍照Pop动画style -->
+     <style name="popwin_anim_style">
+         <item name="android:windowEnterAnimation">@anim/menushow</item>
+         <item name="android:windowExitAnimation">@anim/menuhide</item>
+     </style>
+
+
+     <style name="ColorfulButton">
+         <item name="android:textColor">@color/white</item>
+         <item name="android:textSize">@dimen/text_size_16</item>
+     </style>
+
+     <!--圆角矩形-->
+     <style name="Ripple.Button_Accent" parent="ColorfulButton">
+         <item name="android:background">@drawable/selector_rr_accent_5_rest</item>
+     </style>
+
+     <style name="Ripple.Item">
+         <item name="android:background">@drawable/bg_item</item>
+     </style>
+
+     <!-- 背景水波纹效果-->
+     <style name="Ripple.Item.Background">
+         <item name="android:background">@drawable/bg_item</item>
+     </style>
+
+     <style name="Ripple.Item.Foreground">
+         <item name="android:foreground">@drawable/fg_item</item>
+         <item name="android:background">@color/white</item>
+     </style>
+
+</resources>

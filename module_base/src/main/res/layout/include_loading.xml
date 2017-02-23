@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@+id/loading_layout"
+             xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@color/colorAppBackground"
+             android:focusable="true"
+             android:clickable="true"
+             android:visibility="gone">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:indeterminateBehavior="repeat"
+            android:indeterminateOnly="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="加载中..."
+            android:layout_marginTop="@dimen/view_margin_8dp"
+            android:textColor="@color/dark_second_text"/>
+
+    </LinearLayout>
+
+
+<!--<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerVertical="true"
+    android:layout_marginBottom="30dp"
+    android:orientation="vertical"
+    android:gravity="center">
+<ImageView
+    android:id="@+id/loading"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/custom_progress_draw"/>
+    &lt;!&ndash;        android:elevation="@dimen/elevation_card_rest"
+    android:background="@drawable/loading_bg"&ndash;&gt;
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorTextGray"
+        android:text="稍安勿躁，看小绿荡会秋千..."/>
+
+</LinearLayout>-->
+
+</FrameLayout>

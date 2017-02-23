@@ -1,0 +1,83 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="height_status_bar">25dp</dimen>
+
+    <!-- View之间的间距 -->
+    <dimen name="view_margin_1dp">1dp</dimen>
+    <dimen name="view_margin_2dp">2dp</dimen>
+    <dimen name="view_margin_4dp">4dp</dimen>
+    <dimen name="view_margin_5dp">5dp</dimen>
+    <dimen name="view_margin_6dp">6dp</dimen>
+    <dimen name="view_margin_8dp">8dp</dimen>
+    <dimen name="view_margin_10dp">10dp</dimen>
+    <dimen name="view_margin_12dp">12dp</dimen>
+    <dimen name="view_margin_16dp">16dp</dimen>
+    <dimen name="view_margin_18dp">18dp</dimen>
+    <dimen name="view_margin_20dp">20dp</dimen>
+    <dimen name="view_margin_22dp">22dp</dimen>
+    <dimen name="view_margin_24dp">24dp</dimen>
+    <dimen name="view_margin_32dp">32dp</dimen>
+    <dimen name="view_margin_40dp">40dp</dimen>
+    <dimen name="view_margin_50dp">55dp</dimen>
+    <dimen name="view_margin_60dp">60dp</dimen>
+    <dimen name="view_margin_64dp">64dp</dimen>
+    <dimen name="view_margin_70dp">70dp</dimen>
+    <dimen name="view_margin_80dp">80dp</dimen>
+    <!-- 文字尺寸 -->
+    <dimen name="text_size_6">6sp</dimen>
+    <dimen name="text_size_8">8sp</dimen>
+    <dimen name="text_size_10">10sp</dimen>
+    <dimen name="text_size_11">11sp</dimen>
+    <dimen name="text_size_12">12sp</dimen>
+    <dimen name="text_size_15">15sp</dimen>
+    <dimen name="text_size_14">14sp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="text_size_18">18sp</dimen>
+    <dimen name="text_size_20">20sp</dimen>
+    <dimen name="text_size_22">22sp</dimen>
+    <!-- View之间的间距 -->
+    <dimen name="view_height_08">8dp</dimen>
+    <dimen name="view_height_30">30dp</dimen>
+    <dimen name="view_height_40">40dp</dimen>
+    <dimen name="view_height_50">50dp</dimen>
+    <dimen name="view_height_60">60dp</dimen>
+    <dimen name="view_height_80">80dp</dimen>
+    <dimen name="view_height_90">90dp</dimen>
+    <dimen name="view_height_100">100dp</dimen>
+    <dimen name="view_height_120">120dp</dimen>
+    <dimen name="view_height_140">140dp</dimen>
+    <dimen name="view_height_160">160dp</dimen>
+    <dimen name="view_height_180">180dp</dimen>
+    <dimen name="view_height_200">200dp</dimen>
+
+    <!--Elevation start-->
+    <dimen name="elevation_app_bar">4dp</dimen>
+    <dimen name="elevation_dialog">24dp</dimen>
+    <dimen name="elevation_drawer">16dp</dimen>
+    <dimen name="elevation_refresh_indicator">3dp</dimen>
+    <dimen name="elevation_snackbar">6dp</dimen>
+    <dimen name="elevation_switch">1dp</dimen>
+
+    <dimen name="elevation_raised_button_rest">2dp</dimen>
+    <dimen name="elevation_raised_button_press">8dp</dimen>
+    <!--floating action bar-->
+    <dimen name="elevation_fab_rest">6dp</dimen>
+    <dimen name="elevation_fab_press">12dp</dimen>
+    <dimen name="elevation_card_rest">6dp</dimen>
+    <dimen name="elevation_card_press">12dp</dimen>
+    <!--Quick entry/Search bar-->
+    <dimen name="elevation_edit_rest">2dp</dimen>
+    <dimen name="elevation_sub_press">3dp</dimen>
+
+    <dimen name="elevation_menus">8dp</dimen>
+    <dimen name="elevation_sub_menus">9dp</dimen>
+
+    <dimen name="elevation_tablayout">2dp</dimen>
+    <dimen name="elevation_list_item">2dp</dimen>
+    <dimen name="elevation_4dp">4dp</dimen>
+    <dimen name="elevation_10dp">10dp</dimen>
+
+</resources>

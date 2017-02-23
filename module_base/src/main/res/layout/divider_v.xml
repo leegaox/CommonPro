@@ -1,0 +1,6 @@
+<View xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="0.5px"
+    android:layout_height="match_parent"
+    android:background="@color/white_disabled_hint_text" >
+
+</View>
