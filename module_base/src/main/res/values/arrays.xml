@@ -1,0 +1,30 @@
+<resources>
+    <!--RuntimePermission 危险权限组名称 Start-->
+    <array name="permission_dangergous_group_name">
+        <item>日历</item>
+        <item>相机</item>
+        <item>联系人</item>
+        <item>位置信息</item>
+        <item>麦克风</item>
+        <item>电话</item>
+        <item>身体传感器</item>
+        <item>短信</item>
+        <item>存储空间</item>
+    </array>
+    <!--RuntimePermission 危险权限组名称 End-->
+    <!--RuntimePermission 请求权限结果解释 Start 具体项目具体配置！-->
+    <string-array name="permission_rationale">
+
+        <item>Calendar permission is needed to show the camera preview.</item>
+        <item>显示相机预览需要相机许可权限</item>
+        <item>Contacts permissions are needed to demonstrate access.</item>
+        <item>Location permission is needed to show the camera preview.</item>
+        <item>Microphone permissions are needed to demonstrate access.</item>
+        <item>Phone permission is needed to show the camera preview.</item>
+        <item>Sensors permission is needed to show the camera preview.</item>
+        <item>Sms permissions are needed to demonstrate access.</item>
+        <item>Storage permission is needed to show the camera preview.</item>
+    </string-array>
+    <!--RuntimePermission 请求权限结果解释 End-->
+
+</resources>

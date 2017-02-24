@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Common</string>
+    <string name="action_settings">Settings</string>
+    <string name="sure">Sure</string>
+
+    <string name="permission_enable_now">ENABLE NOW</string>
+    <string name="permission_not_ask">Permissions required for this feature are disabled</string>
+    <string name="permission_setting">Please tap Permissions, then turn on</string>
+    <string name="permission_not_granted">Permissions were not granted.</string>
+</resources>
