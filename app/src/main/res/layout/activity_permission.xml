@@ -15,14 +15,19 @@
         android:id="@+id/requestContacts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="requestContacts"
         android:text="Request Contacts" />
 
     <Button
         android:id="@+id/requestCamera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="requestCamera"
         android:text="Request CAMERA" />
+
+    <Button
+        android:id="@+id/requestPermissions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Request Dangerous Permissions" />
+
 
 </LinearLayout>

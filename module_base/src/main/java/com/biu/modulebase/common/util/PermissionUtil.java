@@ -11,12 +11,11 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.biu.modulebase.R;
 
-import static android.Manifest.permission_group.LOCATION;
+import static android.R.attr.permission;
 
 /**
  * @author Lee
@@ -24,6 +23,7 @@ import static android.Manifest.permission_group.LOCATION;
  * @Description:{Utility class that wraps access to the runtime permissions API in M and provides basic helper methods.
  * office guide: https://developer.android.google.cn/training/permissions/requesting.html
  * https://developer.android.google.cn/training/permissions/best-practices.html#dont-overwhelm  }
+ * TODO: 请求危险权限列表（官方说明： 某些情况下，一项或多项权限可能是应用所必需的。在这种情况下，合理的做法是，在应用启动之后立即要求提供这些权限。例如，如果您运行摄影应用，应用需要访问设备的相机。在用户首次启动应用时，他们不会对提供相机使用权限的要求感到惊讶。但是，如果同一应用还具备与用户联系人共享照片的功能，您不应在应用首次启动时要求用户提供 READ_CONTACTS 权限，而应等到用户尝试使用“共享”功能之后，再要求提供该权限。）
  * @date 2017/2/20
  */
 public class PermissionUtil {
@@ -32,39 +32,39 @@ public class PermissionUtil {
     /**
      * 日历
      **/
-    public static final int REQUEST_CALENDAR = 1;
+    public static final int REQUEST_CALENDAR = 0;
     /**
      * 相机
      **/
-    public static final int REQUEST_CAMERA = 2;
+    public static final int REQUEST_CAMERA = 1;
     /**
      * 通讯录
      **/
-    public static final int REQUEST_CONTACTS = 3;
+    public static final int REQUEST_CONTACTS = 2;
     /**
      * 位置信息
      **/
-    public static final int REQUEST_LOCATION = 4;
+    public static final int REQUEST_LOCATION = 3;
     /**
      * 麦克风
      **/
-    public static final int REQUEST_MICROPHONE = 5;
+    public static final int REQUEST_MICROPHONE = 4;
     /**
      * 电话
      **/
-    public static final int REQUEST_PHONE = 6;
+    public static final int REQUEST_PHONE = 5;
     /**
      * 身体传感器
      **/
-    public static final int REQUEST_SENSORS = 7;
+    public static final int REQUEST_SENSORS = 6;
     /**
      * 短信
      **/
-    public static final int REQUEST_SMS = 8;
+    public static final int REQUEST_SMS = 7;
     /**
      * 存储空间
      **/
-    public static final int REQUEST_STORAGE = 9;
+    public static final int REQUEST_STORAGE = 8;
 
     /**
      * 如果您的应用需要危险权限，则每次执行需要这一权限的操作时您都必须检查自己是否具有该权限
@@ -85,12 +85,11 @@ public class PermissionUtil {
 
 
     /**
+     * 当用户使用app时需要危险组权限时调用请求
+     *
      * @param activity
      * @param permission
      * @param requestCode MY_PERMISSIONS_REQUEST_READ_CONTACTS is an app-defined int constant. The callback method gets the result of the request.
-     *                    TODO:
-     *                    1.定义危险权限组
-     *                    2.根据请求的permission遍历危险权限组
      */
     public static void doRequest(Activity activity, String permission, int requestCode) {
         // Should we show an explanation?
@@ -122,6 +121,27 @@ public class PermissionUtil {
     }
 
     /**
+     * <p>
+     * 根据requestCode显示缺失权限提示 {@link com.biu.modulebase.R.array.permission_rationale}
+     * rationale：显示相机预览需要相机许可权限。
+     * 联系人权限需要证明访问。
+     * </p>
+     *
+     * @param activity
+     */
+    private static void showRequestPermissionRationale(final Activity activity, final String permission, final int requestCode) {
+        new SnackBarBuilder(activity, activity.getResources().getStringArray(R.array.permission_rationale)[requestCode], Snackbar.LENGTH_LONG).setBackgroundColor(R.color.white).setAction("OK", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                requestPermission(activity, permission, requestCode);
+            }
+        }).show();
+    }
+
+    /**
+     * 当用户使用app时需要危险组权限时调用请求
+     * TODO: 记录允许 和 被拒的权限；重新请求被拒权限；所有权限都通过进入app主页
+     *
      * @param activity
      * @param permission
      * @param requestCode MY_PERMISSIONS_REQUEST_READ_CONTACTS is an app-defined int constant. The callback method gets the result of the request.
@@ -131,46 +151,33 @@ public class PermissionUtil {
     }
 
     /**
-     * 显示缺失权限提示
-     * rationale：显示相机预览需要相机许可权限。
-     * 联系人权限需要证明访问。
+     * 在app第一次运行时请求app必要危险权限列表，非必要危险权限在用户使用时动态请求
      * <p>
-     * TODO:
-     * 1.根据请求的权限提供权限解释
+     * 在{@link Activity#onRequestPermissionsResult 里调用 {@link #verifyPermissions}检查请求结果
      *
      * @param activity
+     * @param permissions
+     * @param requestCode
      */
-    private static void showRequestPermissionRationale(final Activity activity, final String permission, final int requestCode) {
-        Snackbar snackbar = Snackbar.make(((ViewGroup) activity.getWindow().getDecorView().getRootView().findViewById(
-                android.R.id.content)).getChildAt(0), "显示相机预览需要相机许可权限", Snackbar.LENGTH_INDEFINITE).setAction("OK",
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        requestPermission(activity, permission, requestCode);
-                    }
-                });
-        snackbar.getView().setBackgroundColor(activity.getResources().getColor(R.color.white));
-        snackbar.show();
-
+    public static void requestPermissions(Activity activity, String[] permissions, int requestCode) {
+        ActivityCompat.requestPermissions(activity, permissions, requestCode);
     }
 
     /**
-     * @param mActivity TODO:
-     *                  根据请求的权限showToast
+     * 根据{@link PermissionUtil#REQUEST_CAMERA ...} 跳转到应用设置界面提示用户打开 危险权限组{@link R.array#permission_dangergous_group_name}
+     *
+     * @param mActivity
+     * @param requestCode
      */
-    public static void showAppSettingsSnackBar(final Activity mActivity, final String permission) {
-        Snackbar snackbar = Snackbar.make(((ViewGroup) mActivity.getWindow().getDecorView().getRootView().findViewById(
-                android.R.id.content)).getChildAt(0), "已关闭这个功能所需的权限", Snackbar.LENGTH_LONG).setAction("立即启用",
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(mActivity, "请点击\"权限\"，然后打开 " + LOCATION, Toast.LENGTH_LONG).show();
-                        startAppSettings(mActivity);
-                    }
-                });
-        snackbar.getView().setBackgroundColor(mActivity.getResources().getColor(R.color.white));
-        snackbar.show();
-
+    public static void showAppSettingsSnackBar(final Activity mActivity, final int requestCode) {
+        new SnackBarBuilder(mActivity, mActivity.getString(R.string.permission_not_ask), Snackbar.LENGTH_LONG).setBackgroundColor(R.color.white).setAction(mActivity.getString(R.string.permission_enable_now), new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String dangerousGroup[] = mActivity.getResources().getStringArray(R.array.permission_dangergous_group_name);
+                Toast.makeText(mActivity, mActivity.getString(R.string.permission_setting) + " " + dangerousGroup[requestCode], Toast.LENGTH_LONG).show();
+                startAppSettings(mActivity);
+            }
+        }).show();
     }
 
     /**
@@ -202,4 +209,5 @@ public class PermissionUtil {
         }
         return true;
     }
+
 }

@@ -11,8 +11,13 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.biu.modulebase.common.util.PermissionUtil;
+import com.biu.modulebase.common.util.SnackBarBuilder;
 import com.biu.mvp.R;
 
+import static android.Manifest.permission.CALL_PHONE;
+import static android.Manifest.permission.READ_CALENDAR;
+import static android.Manifest.permission.SEND_SMS;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static com.biu.modulebase.common.util.PermissionUtil.REQUEST_CAMERA;
 import static com.biu.modulebase.common.util.PermissionUtil.REQUEST_CONTACTS;
 
@@ -36,6 +41,12 @@ public class PermissionActivity extends AppCompatActivity {
                 requestCamera(Manifest.permission.CAMERA);
             }
         });
+        findViewById(R.id.requestPermissions).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                requestPermissions(new String[]{Manifest.permission.READ_CONTACTS,WRITE_EXTERNAL_STORAGE,READ_CALENDAR,SEND_SMS,CALL_PHONE});
+            }
+        });
     }
 
     private void requestCamera(String permission) {
@@ -56,19 +67,22 @@ public class PermissionActivity extends AppCompatActivity {
 
     }
 
+    private void requestPermissions(String []permissions){
+
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode) {
             case REQUEST_CAMERA:
-
                 // Check if the only required permission has been granted
                 if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(getApplicationContext(), "相机权限请求成功", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Request Camera Success", Toast.LENGTH_SHORT).show();
                 } else {
                     if (PermissionUtil.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
-                        Snackbar.make(findViewById(R.id.requestCamera), "相机权限被拒", Snackbar.LENGTH_SHORT).show();
+                        new SnackBarBuilder(this, getString(R.string.permission_not_granted), Snackbar.LENGTH_LONG).setBackgroundColor(R.color.white).show();
                     } else {
-                        PermissionUtil.showAppSettingsSnackBar(PermissionActivity.this, permissions[0]);
+                        PermissionUtil.showAppSettingsSnackBar(PermissionActivity.this, REQUEST_CAMERA);
                     }
                     Log.i(TAG, "CAMERA permission was NOT granted.");
 
@@ -78,12 +92,12 @@ public class PermissionActivity extends AppCompatActivity {
                 // We have requested multiple permissions for contacts, so all of them need to be checked.
                 if (PermissionUtil.verifyPermissions(grantResults)) {
                     // All required permissions have been granted, do next.
-                    Toast.makeText(getApplicationContext(), "REQUEST_CONTACTS请求成功", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Request Contacts Success", Toast.LENGTH_SHORT).show();
                 } else {
                     if (PermissionUtil.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_CONTACTS)) {
-                        Snackbar.make(findViewById(R.id.requestCamera), "联系人权限被拒", Snackbar.LENGTH_SHORT).show();
+                        new SnackBarBuilder(this, getString(R.string.permission_not_granted), Snackbar.LENGTH_LONG).setBackgroundColor(R.color.white).show();
                     } else {
-                        PermissionUtil.showAppSettingsSnackBar(this, permissions[0]);
+                        PermissionUtil.showAppSettingsSnackBar(this, REQUEST_CONTACTS);
                     }
                     Log.i(TAG, "Contacts permissions were NOT granted.");
 
