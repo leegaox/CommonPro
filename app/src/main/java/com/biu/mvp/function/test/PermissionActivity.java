@@ -20,6 +20,7 @@ import static android.Manifest.permission.SEND_SMS;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static com.biu.modulebase.common.util.PermissionUtil.REQUEST_CAMERA;
 import static com.biu.modulebase.common.util.PermissionUtil.REQUEST_CONTACTS;
+import static com.biu.modulebase.common.util.PermissionUtil.REQUEST_PERMISSIONS;
 
 public class PermissionActivity extends AppCompatActivity {
 
@@ -68,7 +69,7 @@ public class PermissionActivity extends AppCompatActivity {
     }
 
     private void requestPermissions(String []permissions){
-
+        PermissionUtil.requestPermissions(this,permissions,REQUEST_PERMISSIONS);
     }
 
     @Override
@@ -102,6 +103,18 @@ public class PermissionActivity extends AppCompatActivity {
                     Log.i(TAG, "Contacts permissions were NOT granted.");
 
                 }
+                break;
+            case  REQUEST_PERMISSIONS:
+                // We have requested multiple permissions for contacts, so all of them need to be checked.
+                if (PermissionUtil.verifyPermissions(grantResults)) {
+                    // All required permissions have been granted, do next.
+                    Toast.makeText(getApplicationContext(), "Request Contacts Success", Toast.LENGTH_SHORT).show();
+                } else {
+                    //show Dialog
+                    PermissionUtil.requestPermissions(this,permissions,PermissionUtil.REQUEST_PERMISSIONS);
+
+                }
+
                 break;
             default:
                 super.onRequestPermissionsResult(requestCode, permissions, grantResults);

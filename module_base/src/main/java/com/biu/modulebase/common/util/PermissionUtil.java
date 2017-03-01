@@ -28,42 +28,26 @@ import static android.R.attr.permission;
  */
 public class PermissionUtil {
 
+    /**请求危险权限组**/
+    public static final int REQUEST_PERMISSIONS =10;
     //请求危险权限requestCode
-    /**
-     * 日历
-     **/
+    /**日历*/
     public static final int REQUEST_CALENDAR = 0;
-    /**
-     * 相机
-     **/
+    /**相机**/
     public static final int REQUEST_CAMERA = 1;
-    /**
-     * 通讯录
-     **/
+    /**通讯录**/
     public static final int REQUEST_CONTACTS = 2;
-    /**
-     * 位置信息
-     **/
+    /**位置信息**/
     public static final int REQUEST_LOCATION = 3;
-    /**
-     * 麦克风
-     **/
+    /**麦克风**/
     public static final int REQUEST_MICROPHONE = 4;
-    /**
-     * 电话
-     **/
+    /**电话**/
     public static final int REQUEST_PHONE = 5;
-    /**
-     * 身体传感器
-     **/
+    /**身体传感器**/
     public static final int REQUEST_SENSORS = 6;
-    /**
-     * 短信
-     **/
+    /**短信**/
     public static final int REQUEST_SMS = 7;
-    /**
-     * 存储空间
-     **/
+    /**存储空间**/
     public static final int REQUEST_STORAGE = 8;
 
     /**
@@ -126,7 +110,7 @@ public class PermissionUtil {
      * rationale：显示相机预览需要相机许可权限。
      * 联系人权限需要证明访问。
      * </p>
-     *
+     *          注：R.array.permission_rationale 需要具体项目具体配置获取权限的原理 以告知用户
      * @param activity
      */
     private static void showRequestPermissionRationale(final Activity activity, final String permission, final int requestCode) {
@@ -151,9 +135,10 @@ public class PermissionUtil {
     }
 
     /**
-     * 在app第一次运行时请求app必要危险权限列表，非必要危险权限在用户使用时动态请求
+     * 在app第一次运行时请求app 必要 危险权限列表，非必要危险权限在用户使用时动态请求
      * <p>
-     * 在{@link Activity#onRequestPermissionsResult 里调用 {@link #verifyPermissions}检查请求结果
+     * 在{@link Activity#onRequestPermissionsResult 里调用 {@link #verifyPermissions}检查请求结果 ,如果全部被授权 则进入下一步，
+     * 否则继续调用{@link #requestPermissions}继续请求权限组，系统会记录一杯授权的权限，请求剩下未被授权的权限
      *
      * @param activity
      * @param permissions
